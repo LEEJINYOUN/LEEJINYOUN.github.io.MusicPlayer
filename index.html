@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script defer src="main.js"></script>
+    <link rel="shortcut icon" href="#" />
+    <title>MusicPlayer</title>
+  </head>
+  <body>
+    <section class="wrap">
+      <section class="main_container">
+        <section class="volume">
+          <span id="volume" class="material-icons">volume_up</span>
+          <div class="slider">
+            <input
+              class="volume_slider"
+              type="range"
+              min="0"
+              max="100"
+              value="100"
+            />
+            <progress
+              class="volume_progress_bar"
+              min="0"
+              max="100"
+              value="100"
+            ></progress>
+          </div>
+          <div class="volume_value">100</div>
+        </section>
+        <section class="image">
+          <img src="" alt="" />
+        </section>
+        <section class="texts">
+          <span class="name"></span>
+          <p class="artist"></p>
+        </section>
+        <section class="progress">
+          <div class="progress_bar">
+            <audio id="main-audio" src=""></audio>
+          </div>
+          <div class="song_timer">
+            <span class="current-time">0:00</span>
+            <span class="max-duration">0:00</span>
+          </div>
+        </section>
+        <section class="controls">
+          <span id="repeat-plist" class="material-icons" title="Playlist"
+            >repeat</span
+          >
+          <span id="prev" class="material-icons">skip_previous</span>
+          <div class="play-pause">
+            <span class="material-icons">play_arrow</span>
+          </div>
+          <span id="next" class="material-icons">skip_next</span>
+          <span id="volume" class="material-icons">queue_music</span>
+        </section>
+        <section class="audio_count"></section>
+      </section>
+    </section>
+    <script src="music-list.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
