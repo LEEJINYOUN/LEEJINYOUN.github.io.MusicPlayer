@@ -1,38 +1,38 @@
-const musicCount = document.querySelector(".audio_count");
+const musicCount = document.querySelector(".audioCount");
 const musicImg = document.querySelector(".image img");
 const musicName = document.querySelector(".name");
 const musicArtist = document.querySelector(".artist");
-const musicAudio = document.querySelector("#main-audio");
-const playPauseBtn = document.querySelector(".play-pause");
-const playPauseIcon = document.querySelector(".play-pause span");
+const musicAudio = document.querySelector("#mainAudio");
+const playPauseBtn = document.querySelector(".playPause");
+const playPauseIcon = document.querySelector(".playPause span");
 const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const progress = document.querySelector(".progress");
-const progressBar = document.querySelector(".progress_bar");
-const repeatBtn = document.querySelector("#repeat-plist");
-const volume_slider = document.querySelector(".volume_slider");
-const volume_progress_bar = document.querySelector(".volume_progress_bar");
-const volume_value = document.querySelector(".volume_value");
+const progressBar = document.querySelector(".progressBar");
+const repeatBtn = document.querySelector("#repeatPlist");
+const volumeSlider = document.querySelector(".volumeSlider");
+const volumeProgressBar = document.querySelector(".volumeProgressBar");
+const volumeValue = document.querySelector(".volumeValue");
 
 let musicIndex = 1;
 
 window.addEventListener("load", () => {
   loadMusic(musicIndex);
-  volume_slider.oninput = function () {
-    volume_progress_bar.value = volume_slider.value;
-    $(volume_value).text(volume_slider.value);
-    musicAudio.volume = volume_slider.value / 100;
+  volumeSlider.oninput = function () {
+    volumeProgressBar.value = volumeSlider.value;
+    $(volumeValue).text(volumeSlider.value);
+    musicAudio.volume = volumeSlider.value / 100;
   };
 });
 
-function loadMusic(indexNunb) {
+function loadMusic(indexNumber) {
   $(musicCount).text(
-    ` 현재 재생목록 (${allMusic[indexNunb - 1].id}/${allMusic.length})`
+    ` 현재 재생목록 (${allMusic[indexNumber - 1].id}/${allMusic.length})`
   );
-  $(musicName).text(`${allMusic[indexNunb - 1].name}`);
-  $(musicArtist).text(`${allMusic[indexNunb - 1].artist}`);
-  $(musicImg).attr("src", `imgs/${allMusic[indexNunb - 1].img}.jpg`);
-  $(musicAudio).attr("src", `songs/${allMusic[indexNunb - 1].src}.mp3`);
+  $(musicName).text(`${allMusic[indexNumber - 1].name}`);
+  $(musicArtist).text(`${allMusic[indexNumber - 1].artist}`);
+  $(musicImg).attr("src", `imgs/${allMusic[indexNumber - 1].img}.jpg`);
+  $(musicAudio).attr("src", `songs/${allMusic[indexNumber - 1].src}.mp3`);
 }
 
 function playMusic() {
@@ -80,8 +80,8 @@ $(musicAudio).on("timeupdate", (e) => {
   let progressWidth = (currentTime / duration) * 100;
   $(progressBar).css("width", `${progressWidth}%`);
 
-  let musicCurrentTime = document.querySelector(".current-time");
-  let musicDuration = document.querySelector(".max-duration");
+  let musicCurrentTime = document.querySelector(".currentTime");
+  let musicDuration = document.querySelector(".maxDuration");
 
   $(musicAudio).on("loadeddata", () => {
     let audioDuration = musicAudio.duration;
